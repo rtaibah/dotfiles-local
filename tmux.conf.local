@@ -1,0 +1,92 @@
+ # List of plugins
+ set -g @tpm_plugins '          \
+   tmux-plugins/tpm             \
+   tmux-plugins/tmux-sensible   \
+   tmux-plugins/tmux-resurrect  \
+   tmux-plugins/tmux-yank \
+   tmux-plugins/vim-tmux-namespace \
+   tmux-plugins/tmux-open \
+   kristijanhusak/tmux-simple-git-status \
+   dracula/tmux \
+ '
+
+set-option -g default-shell "/bin/zsh"
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+set -g mouse on
+
+# remove annoying mouse yank
+set -g @yank_with_mouse on # or 'on'
+
+# trigger copy mode by
+bind -n M-Up copy-mode
+
+set-option -g status-position top
+
+# Do not copy selection and cancel copy mode on drag end event
+# Prefer iTerm style selection: select, then mouse click to copy to buffer
+unbind -T copy-mode-vi MouseDragEnd1Pane
+bind -T copy-mode-vi MouseDown1Pane select-pane \;\
+ send-keys -X clear-selection
+
+# bind p paste-buffer
+bind C-p choose-buffer
+
+# Open new tmux panes with same directory
+bind c new-window -c "#{pane_current_path}"
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+
+# split panes using | and -
+bind | split-window -h
+bind - split-window -v
+unbind '"'
+unbind %
+
+# don't rename windows automatically
+set-option -g allow-rename off
+
+# resize panes using a mouse
+set-option -g mouse on
+unbind -T copy-mode MouseDragEnd1Pane
+
+# sane scrolling:
+bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e; send-keys -M'"
+
+
+# Switching windows
+bind-key -n C-S-Left swap-window -t -1
+bind-key -n C-S-Right swap-window -t +1
+
+
+# Vim style navigation in copy mode
+setw -g mode-keys vi
+
+# Bind ']' to use pbbaste
+bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
+
+# Restore geometry
+set -g @resurrect-hook-post-save-all 'eval $(xdotool getwindowgeometry --shell $WINDOWID); echo 0,$X,$Y,$WIDTH,$HEIGHT > $HOME/.tmux/resurrect/geometry'
+set -g @resurrect-hook-pre-restore-all 'wmctrl -i -r $WINDOWID -e $(cat $HOME/.tmux/resurrect/geometry)'
+
+# Reload bashrc
+# set -g @resurrect-hook-pre-restore-pane-processes 'source ~/.zshrc'
+
+
+set -g @dracula-show-powerline true
+set -g @dracula-show-network true
+set -g @dracula-military-time true
+set -g @dracula-show-fahrenheit false
+set -g @dracula-border-contrast true
+set -g @dracula-cpu-usage true
+set -g @dracula-cpu-usage-colors "pink dark_gray"
+set -g @dracula-ram-usage true
+set -g @dracula-show-powerline true
+# for left
+set -g @dracula-show-left-sep |
+
+# for right symbol (can set any symbol you like as seperator)
+set -g @dracula-show-right-sep |
+
+# run-shell ~/.tmux/plugins/tmux-resurrect/resurrect.tmux
+run '~/.tmux/plugins/tpm/tpm'

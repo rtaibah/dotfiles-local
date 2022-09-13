@@ -1,0 +1,119 @@
+###############################################################################
+# Shorthand
+###############################################################################
+alias c='clear'
+alias g='grep'
+alias xx="exit"
+# Search history
+alias h="history | grep"
+# Search processes
+alias p='ps aux |grep '
+#open any file or folder with default app
+alias o='xdg-open '
+# Readable path
+alias path='echo -e ${PATH//:/\\n}'
+#python calculator
+alias pc='python -i -Qnew -c "from math import *"'
+# ping
+alias ping="ping -c 3"
+# sudo
+alias !="sudo"
+# mount apple partition
+alias apple="sudo mount -t hfsplus -o force,rw /dev/sda2 /media/rtaibah/apple/"
+# unmount apple partition
+alias uapple="sudo umount /media/rtaibah/apple"
+# todo.txt alias
+alias t="c && ~/.todo/todo.sh"
+# Whats My IP
+alias i='ifconfig eth1 | grep "inet addr" | cut -d: -f2 | awk "{print \$1}"'
+
+
+###############################################################################
+# Listing
+###############################################################################
+
+# List normal files
+alias l='ls -lh'
+# List everything, including hidden files
+alias ll='ls -hal'
+# List everything, by reverse date
+alias lld='ls -thral'
+
+
+###############################################################################
+# Changing directories
+###############################################################################
+
+# Shorthand navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+
+###############################################################################
+# Git
+###############################################################################
+
+alias gs='git status -sb'
+alias gc='git commit -v'
+alias ga='git add'
+alias gap='git add -p'
+alias gaa='git add -A'
+alias gco='git checkout'
+alias gl='git log --oneline --decorate'
+alias gd='git diff'
+alias gdt='git difftool'
+alias gps='git push'
+alias gpsm='git push origin master'
+alias gpsmt='git push origin master --tags'
+alias gpsd='git push origin develop'
+alias gpl='git pull'
+alias gplm='git pull origin master'
+alias gpld='git pull origin develop'
+alias gf='git fetch'
+alias gb='git branch'
+alias gba='git branch -a -v -v'
+alias gun='git reset --hard HEAD' # Unstage added changes
+
+
+###############################################################################
+# Vim 
+###############################################################################
+
+alias v='vim'
+alias vim='nvim'
+alias vinst='vim +PluginInstall +qall'
+
+#Other
+alias 'make_me_a_sandwich'='echo "What? Make it yourself"'
+alias 'sudo_make_me_a_sandwich'='echo "ok"'
+alias emacs='echo "emacs sucks " && sleep 2 && vim'
+
+
+###############################################################################
+# Music
+###############################################################################
+
+alias defcon='mplayer http://ice1.somafm.com/defcon-128-mp3'
+alias groove='mplayer http://ice1.somafm.com/groovesalad-128-mp3'
+alias lush='mplayer http://ice1.somafm.com/lush-128-mp3' 
+alias space='mplayer http://ice1.somafm.com/spacestation-128-mp3' 
+alias indie='mplayer http://ice1.somafm.com/indiepop-128-mp3' 
+alias cover='mplayer http://ice1.somafm.com/covers-128-mp3'
+
+
+###############################################################################
+# Tmux 
+###############################################################################
+
+alias 'tsource'='tmux source-file ~/.tmux.conf'
+
+
+###############################################################################
+# JS 
+###############################################################################
+
+# Delete all node_modules directories recursively
+alias nclean="find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;"
+
