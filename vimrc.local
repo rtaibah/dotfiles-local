@@ -1,6 +1,6 @@
 " One .vimrc File To Rule Them All.
 
-" Last Change: 13-09-2022
+" Last Change: 14-09-2022
 " Author: Rami Taibah
 " Maintainer: http://rtaibah.com
 " License: http://opensource.org/licenses/bsd-license.php
@@ -148,13 +148,6 @@ let g:javascript_conceal_arrow_function       = "⇒"
 let g:javascript_conceal_noarg_arrow_function = "🞅"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
 
-" Coc
-autocmd FileType json syntax match Comment +\/\/.\+$+
-set updatetime=300
-
-" Async
-autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
-
 " NERDTree settings
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -166,6 +159,20 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+
+" Ale
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+
+let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
+let g:ale_linters = {'vue': ['eslint', 'vls']}
+
+" Fix file automatically on save
+let g:ale_fix_on_save = 1
+
+nmap <silent> [c <Plug>(ale_previous_wrap)
+nmap <silent> ]c <Plug>(ale_next_wrap)
+" nmap <F6> <Plug>(ale_fix)
 
 " Airlines Tabs
 let g:airline#extensions#tabline#enabled = 1
@@ -381,3 +388,16 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+let g:coc_global_extensions = [
+    \ 'coc-snippets',
+    \ 'coc-pairs',
+    \ 'coc-tsserver',
+    \ 'coc-json',
+    \ 'coc-vimlsp',
+    \ 'coc-emmet',
+    \ 'coc-css',
+    \ ]
+
+" Trying to get devicons to work. Commented out.
+"set guifont=FuraMono\ Nerd\ Font\ Mono\ Regular:h11
