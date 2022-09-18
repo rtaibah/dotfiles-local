@@ -209,20 +209,20 @@ nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>h :History<CR>
 
 " Prettier
-let g:prettier#config#print_width = 90
-let g:prettier#config#tab_width = 2
-let g:prettier#config#semi = 'false'
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#autoformat = 0
-let g:prettier#config#jsx_bracket_same_line = 'false'
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
-au FileType javascript setlocal formatprg=prettier
-au FileType javascript.jsx setlocal formatprg=prettier
-au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-au FileType html setlocal formatprg=js-beautify\ --type\ html
-au FileType scss setlocal formatprg=prettier\ --parser\ css
-au FileType css setlocal formatprg=prettier\ --parser\ css
+" let g:prettier#config#print_width = 90
+" let g:prettier#config#tab_width = 2
+" let g:prettier#config#semi = 'false'
+" let g:prettier#config#single_quote = 'true'
+" let g:prettier#config#bracket_spacing = 'true'
+" let g:prettier#autoformat = 0
+" let g:prettier#config#jsx_bracket_same_line = 'false'
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+" au FileType javascript setlocal formatprg=prettier
+" au FileType javascript.jsx setlocal formatprg=prettier
+" au FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+" au FileType html setlocal formatprg=js-beautify\ --type\ html
+" au FileType scss setlocal formatprg=prettier\ --parser\ css
+" au FileType css setlocal formatprg=prettier\ --parser\ css
 
 " vim-jsx-pretty
 let g:vim_jsx_pretty_colorful_config = 1
