@@ -1,6 +1,6 @@
 " One .vimrc File To Rule Them All.
 
-" Last Change: 14-09-2022
+" Last Change: 28-09-2022
 " Author: Rami Taibah
 " Maintainer: http://rtaibah.com
 " License: http://opensource.org/licenses/bsd-license.php
@@ -182,8 +182,8 @@ let g:ale_linters = {'vue': ['eslint', 'vls']}
 " let g:ale_fix_on_save = 1
 
 " Better error navigation with ctrl+k and ctrl+j
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
+nmap <silent> <Leader>j <Plug>(ale_next_wrap)
 
 " nmap <F6> <Plug>(ale_fix)
 
