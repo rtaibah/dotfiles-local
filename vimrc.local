@@ -1,6 +1,6 @@
 " One .vimrc File To Rule Them All.
 
-" Last Change: 28-09-2022
+" Last Change: 14-12-2022
 " Author: Rami Taibah
 " Maintainer: http://rtaibah.com
 " License: http://opensource.org/licenses/bsd-license.php
@@ -262,6 +262,18 @@ set updatetime=300
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 set signcolumn=yes
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                              MISC                                           " 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+au BufRead,BufNewFile *.njk setfiletype html
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                               COC SETTINGS                                  "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: There's always complete item selected by default, you may want to enable
