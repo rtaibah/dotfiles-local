@@ -1,4 +1,4 @@
-# If you come from bash you might have to change your $PATH.
+#export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin" If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
@@ -111,8 +111,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH="$HOME/.bin:$PATH"
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # pnpm
 export PNPM_HOME="/Users/rami/Library/pnpm"
