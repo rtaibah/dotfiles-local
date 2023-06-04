@@ -50,6 +50,10 @@ set hidden
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h,*.js,*.html,*.scss,*.css match BadWhitespace /\s\+$/
 set smartindent
 
+" Rails Indentation for ruby and erb files
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                               MAPPINGS                                      "
@@ -67,6 +71,11 @@ nnoremap k gk
 
 "Enable folding with the spacebar.
 nnoremap <space> za
+
+"Close file in buffer and load a different file instead of closing the whole 
+" buffer.
+
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -161,15 +170,15 @@ endfunction
 
 " Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
 " file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
+" function! SyncTree()
+"   if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+"     NERDTreeFind
+"     wincmd p
+"   endif
+" endfunction
+"
+" " Highlight currently open buffer in NERDTree
+" autocmd BufEnter * call SyncTree()
 
 " Airline settings
 let g:airline_powerline_fonts = 1
@@ -195,12 +204,32 @@ let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 
 let g:ale_linter_aliases = {'vue': ['vue', 'javascript']}
-let g:ale_linters = {'vue': ['eslint', 'vls']}
 
-" let b:ale_fixers = {'javascript': ['eslint', 'prettier']}
+let g:ale_linters = {
+      \ 'vue': ['eslint', 'vls'],
+      \ 'javascript': ['eslint'],
+      \ 'ruby': ['rubocop']
+      \}
+
+" Lint Ruby files with binstub
+let g:ale_ruby_rubocop_executable = 'rubocop'
+
+" Let's leave a column for the signs so that the left side of the window doesn't move
+let g:ale_sign_column_always = 1
+
+let g:ale_fixers = {
+      \'javascript': ['eslint', 'prettier'], 
+      \ 'ruby': ['rubocop']
+      \}
+
+let g:ale_linters_explicit = 1
+
+" ALE Virtual Highlight
+highlight ALEError ctermbg=none cterm=underline 
+highlight ALEWarning ctermbg=none cterm=underline
 
 " Fix file automatically on save
-" let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
 
 " Better error navigation with ctrl+k and ctrl+j
 " nmap <silent> <Leader>k <Plug>(ale_previous_wrap)
