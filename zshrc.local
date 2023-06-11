@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+source "~/.aliases"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -110,14 +111,16 @@ source $ZSH/oh-my-zsh.sh
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-export PATH="$HOME/.bin:$PATH"
+# export PATH="$HOME/.bin:$PATH"
 
 # eval "$(/opt/homebrew/bin/brew shellenv)"
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # pnpm
 export PNPM_HOME="/Users/rami/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end
 
 PATH=/bin:/usr/bin:/usr/local/bin:/sbin:${PATH}
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
