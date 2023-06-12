@@ -26,4 +26,5 @@ Plug 'alvan/vim-closetag'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'HerringtonDarkHolme/yats'
 Plug 'djoshea/vim-autoread'
+Plug 'dense-analysis/ale'
 call plug#end()
