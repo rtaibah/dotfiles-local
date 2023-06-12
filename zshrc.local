@@ -106,7 +106,3 @@ source $ZSH/oh-my-zsh.sh
 source ~/.aliases
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# pnpm
-export PNPM_HOME="/Users/rami/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"

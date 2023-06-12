@@ -16,12 +16,6 @@ alias path='echo -e ${PATH//:/\\n}'
 alias pc='python -i -Qnew -c "from math import *"'
 # ping
 alias ping="ping -c 3"
-# sudo
-alias !="sudo"
-# mount apple partition
-alias apple="sudo mount -t hfsplus -o force,rw /dev/sda2 /media/rtaibah/apple/"
-# unmount apple partition
-alias uapple="sudo umount /media/rtaibah/apple"
 # todo.txt alias
 alias t="c && ~/.todo/todo.sh"
 # Whats My IP
@@ -85,11 +79,6 @@ alias v='vim'
 alias vim='nvim'
 alias vinst='vim +PluginInstall +qall'
 
-#Other
-alias 'make_me_a_sandwich'='echo "What? Make it yourself"'
-alias 'sudo_make_me_a_sandwich'='echo "ok"'
-alias emacs='echo "emacs sucks " && sleep 2 && vim'
-
 
 ###############################################################################
 # Music
@@ -115,5 +104,4 @@ alias 'tsource'='tmux source-file ~/.tmux.conf'
 ###############################################################################
 
 # Delete all node_modules directories recursively
-alias nclean="find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;"
-
+alias nclean='find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \;"'
