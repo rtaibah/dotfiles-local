@@ -1,23 +1,28 @@
 ###############################################################################
 # Shorthand
 ###############################################################################
+
 alias c='clear'
+
 alias g='grep'
+
 alias xx="exit"
+
 # Search history
 alias h="history | grep"
+
 # Search processes
 alias p='ps aux |grep '
-#open any file or folder with default app
-alias o='xdg-open '
+
 # Readable path
 alias path='echo -e ${PATH//:/\\n}'
+
 #python calculator
 alias pc='python -i -Qnew -c "from math import *"'
+
 # ping
 alias ping="ping -c 3"
-# todo.txt alias
-alias t="c && ~/.todo/todo.sh"
+
 # Whats My IP
 alias i='ifconfig eth1 | grep "inet addr" | cut -d: -f2 | awk "{print \$1}"'
 
@@ -28,8 +33,10 @@ alias i='ifconfig eth1 | grep "inet addr" | cut -d: -f2 | awk "{print \$1}"'
 
 # List normal files
 alias l='ls -lh'
+
 # List everything, including hidden files
 alias ll='ls -hal'
+
 # List everything, by reverse date
 alias lld='ls -thral'
 
@@ -78,18 +85,6 @@ alias gun='git reset --hard HEAD' # Unstage added changes
 alias v='vim'
 alias vim='nvim'
 alias vinst='vim +PluginInstall +qall'
-
-
-###############################################################################
-# Music
-###############################################################################
-
-alias defcon='mplayer http://ice1.somafm.com/defcon-128-mp3'
-alias groove='mplayer http://ice1.somafm.com/groovesalad-128-mp3'
-alias lush='mplayer http://ice1.somafm.com/lush-128-mp3' 
-alias space='mplayer http://ice1.somafm.com/spacestation-128-mp3' 
-alias indie='mplayer http://ice1.somafm.com/indiepop-128-mp3' 
-alias cover='mplayer http://ice1.somafm.com/covers-128-mp3'
 
 
 ###############################################################################
