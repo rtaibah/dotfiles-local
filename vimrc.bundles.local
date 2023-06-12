@@ -1,10 +1,6 @@
 call plug#begin('~/.vim/bundle')
-UnPlug 'elixir-lang/vim-elixir'
-UnPlug 'fatih/vim-go'
-UnPlug 'janko-m/vim-test'
-UnPlug 'pangloss/vim-javascript'
-UnPlug 'slim-template/vim-slim'
-UnPlug 'tpope/vim-bundler'
+Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-bundler'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -17,7 +13,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'sheerun/vim-polyglot'
 Plug 'leshill/vim-json'
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'posva/vim-vue'
 Plug 'ap/vim-css-color'
 Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
